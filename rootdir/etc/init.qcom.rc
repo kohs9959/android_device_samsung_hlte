@@ -235,6 +235,11 @@ on post-fs-data
     chmod 666 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
+    # Hardware tunables
+    chown root system /sys/class/timed_output/vibrator/amp
+    chmod 0664 /sys/class/timed_output/vibrator/amp
+    restorecon /sys/class/timed_output/vibrator/amp
+
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
     #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
